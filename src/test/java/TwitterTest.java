@@ -1,4 +1,4 @@
-import helpers.DriverSingleton;
+import helpers.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.RegistrationPage;
@@ -6,9 +6,8 @@ import pages.RegistrationPage;
 import static helpers.DriverSingleton.getDriver;
 import static helpers.Helpers.saveScreenshot;
 
-public class TwitterTest {
+public class TwitterTest extends TestBase{
 
-    private final static String BASE_URL = "https://twitter.com/signup";
     private final String FULL_NAME = "";
     private final String VALID_EMAIL = "mails@trp.ru";
     private final String INVALID_EMAIL = "q123";
@@ -16,16 +15,6 @@ public class TwitterTest {
     private final String INVALID_PASSWORD = "11";
     private final String EMAIL_ERROR = "Введите действительный адрес электронной почты";
     private final String PASSWORD_ERROR = "Ваш пароль должен состоять как минимум из 6 символов.";
-
-    @BeforeMethod(alwaysRun = true)
-    public void setUp(){
-        getDriver().get(BASE_URL);
-    }
-
-    @AfterMethod(alwaysRun = true)
-    public void tearDown(){
-        DriverSingleton.quit();
-    }
 
     @Test
     public void invalidEmailTest() {

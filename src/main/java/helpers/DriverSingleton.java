@@ -34,11 +34,11 @@ public class DriverSingleton {
         String remote = System.getProperty("remote", "local");
         if (remote.equals("local")){
             switch (browserName) {
-                case "firefox": default:
-                    driver = new FirefoxDriver();
-                    break;
-                case "chrome":
+                case "chrome": default:
                     driver = new ChromeDriver();
+                    break;
+                case "firefox":
+                    driver = new FirefoxDriver();
                     break;
                 case "ie":
                     driver = new InternetExplorerDriver();

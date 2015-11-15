@@ -1,26 +1,13 @@
 import helpers.DataProviders;
-import helpers.DriverSingleton;
+import helpers.TestBase;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.RegistrationPage;
 
 import static helpers.DriverSingleton.getDriver;
-import static helpers.Helpers.saveScreenshot;
 
-public class DataDrivenTwitterValidationTest {
-
-    private final static String BASE_URL = "https://twitter.com/signup";
-
-    @BeforeMethod(alwaysRun = true)
-    public void setUp(){
-        getDriver().get(BASE_URL);
-    }
-
-    @AfterMethod(alwaysRun = true)
-    public void tearDown(){
-        DriverSingleton.quit();
-    }
+public class DataDrivenTwitterValidationTest extends TestBase{
 
     @Test(dataProvider = "registrationData", dataProviderClass = DataProviders.class)
     public void registrationDataTest(String user, String email, String pass,
