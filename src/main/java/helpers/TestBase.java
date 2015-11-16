@@ -1,7 +1,6 @@
 package helpers;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
 
 import static helpers.DriverSingleton.getDriver;
 
@@ -13,7 +12,7 @@ public class TestBase {
         getDriver().navigate().to(BASE_URL);
     }
 
-    @AfterMethod
+    @AfterClass
     public void tearDown(){
         DriverSingleton.quit();
     }
